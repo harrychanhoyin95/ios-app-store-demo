@@ -7,7 +7,7 @@ import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './redux/configureStore'
 
-import './index.css';
+import './index.scss';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/graphql',
