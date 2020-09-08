@@ -9,6 +9,7 @@ const CronJob = new cron_1.default;
 const portNumber = process.env.PORT || index_1.default.port;
 ExpressServer.init();
 CronJob.tenMinutes();
+CronJob.secondTenMinutes();
 ExpressServer.httpServer.listen(portNumber, () => {
     console.log(`🚀 Server started at PORT ${portNumber} `);
     console.log(`🚀 Server ready at http://localhost:${portNumber}${ExpressServer.server.graphqlPath}`);

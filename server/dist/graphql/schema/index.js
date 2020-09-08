@@ -9,11 +9,17 @@ const typeDefs = apollo_server_express_1.gql `
       limit: Int,
       offset: Int
     ): FreeAppsResult!
+
+    allGrossingApps: GrossingAppsResult!
   }
 
   type FreeAppsResult {
     freeApps: [Apps]!
     totalCount: Int
+  }
+
+  type GrossingAppsResult {
+    grossingApps: [Apps]!
   }
 
   type Apps {

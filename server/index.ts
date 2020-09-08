@@ -8,6 +8,7 @@ const portNumber = process.env.PORT || config.port
 
 ExpressServer.init();
 CronJob.tenMinutes();
+CronJob.secondTenMinutes();
 
 ExpressServer.httpServer.listen(portNumber, () => {
   console.log(`🚀 Server started at PORT ${portNumber} `)

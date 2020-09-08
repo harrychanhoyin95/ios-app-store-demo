@@ -8,11 +8,17 @@ const typeDefs = gql`
       limit: Int,
       offset: Int
     ): FreeAppsResult!
+
+    allGrossingApps: GrossingAppsResult!
   }
 
   type FreeAppsResult {
     freeApps: [Apps]!
     totalCount: Int
+  }
+
+  type GrossingAppsResult {
+    grossingApps: [Apps]!
   }
 
   type Apps {

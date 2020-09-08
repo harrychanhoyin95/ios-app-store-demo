@@ -1,8 +1,10 @@
-import { FreeAppsQueries } from './freeApps'
+import { FreeAppsQueries } from './freeApps';
+import { GrossingAppsQueries } from './grossingApps';
 
 const rootResolver = {
   Query: {
-    ...FreeAppsQueries
+    ...FreeAppsQueries,
+    ...GrossingAppsQueries
   }
 }
 

@@ -29,6 +29,29 @@ class Cron {
                 fs_1.default.writeFileSync('freeAppsList.json', JSON.stringify({ detailedAppsList }), 'utf8');
             }));
         };
+        this.secondTenMinutes = () => {
+            node_cron_1.default.schedule("*/30 * * * * *", () => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                console.log("running a task every minute");
+                const appsList = yield axios_1.default.get('https://itunes.apple.com/hk/rss/topgrossingapplications/limit=10/json')
+                    .then(result => result.data.feed.entry);
+                const detailedAppsList = yield Promise.all(appsList.map((a) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const singleApp = yield axios_1.default.get(`https://itunes.apple.com/hk/lookup?id=${a.id.attributes["im:id"]}`)
+                        .then(result => result.data.results[0]);
+                    return {
+                        title: singleApp.trackName,
+                        images: {
+                            artworkUrl60: singleApp.artworkUrl60,
+                            artworkUrl100: singleApp.artworkUrl100,
+                            artworkUrl512: singleApp.artworkUrl512
+                        },
+                        category: singleApp.genres[0],
+                        rating: singleApp.averageUserRating,
+                        ratingCount: singleApp.userRatingCount
+                    };
+                })));
+                fs_1.default.writeFileSync('grossingAppsList.json', JSON.stringify({ detailedAppsList }), 'utf8');
+            }));
+        };
     }
 }
 exports.default = Cron;
