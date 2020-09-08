@@ -10,8 +10,6 @@ const AppListing = ({
   freeApps,
   fetchMore
 }) => {
-  console.log("freeApps", freeApps)
-
   return (
     <div  className="app-listing_container">
       <InfiniteScroll
@@ -30,13 +28,9 @@ const AppListing = ({
             }
           }
         })}
-        hasMore={true}
-        loader={<MoonLoader />}
-        endMessage={
-          <p style={{textAlign: 'center'}}>
-            <b>Yay! You have seen it all</b>
-          </p>
-        }
+        hasMore={freeApps.length !== 100}
+        loader={<div className="app-listing_loading-container"><MoonLoader size={30} /></div>}
+        endMessage={<div></div>}
       >
         {freeApps.map((apps, index) => {
           return (

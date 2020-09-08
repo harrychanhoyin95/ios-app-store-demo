@@ -1,6 +1,12 @@
 .app-listing_container{
   border-top: 1px solid #cacaca;
 
+  .app-listing_loading-container {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0;
+  }
+
   .app-listing_apps-container {
     padding: 0px 16px;
     height: 116px;
