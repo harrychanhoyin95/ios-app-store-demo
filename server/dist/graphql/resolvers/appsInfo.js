@@ -25,8 +25,8 @@ const FreeAppsQueries = {
                 };
             })));
             const offset = lodash_1.default.get(args, "offset", 0);
-            const first = lodash_1.default.get(args, "first", undefined);
-            const freeAppsList = first === undefined ? (detailedAppsList.slice(offset)) : (detailedAppsList.slice(offset, offset + first));
+            const limit = lodash_1.default.get(args, "limit", undefined);
+            const freeAppsList = limit === undefined ? (detailedAppsList.slice(offset)) : (detailedAppsList.slice(offset, offset + limit));
             return {
                 freeApps: freeAppsList,
                 totalCount: freeAppsList.length

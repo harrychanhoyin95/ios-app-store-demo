@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 const GET_FREE_APPS_LIST_QUERY = gql`
-  query GetFreeAppsList($first: Int, $offset: Int) {
-    allFreeApps(first: $first, offset: $offset) {
+  query GetFreeAppsList($limit: Int, $offset: Int) {
+    allFreeApps(limit: $limit, offset: $offset) {
       freeApps {
         title
         images {

@@ -25,12 +25,12 @@ const FreeAppsQueries = {
       }))
 
       const offset = _.get(args, "offset", 0);
-      const first = _.get(args, "first", undefined);
+      const limit = _.get(args, "limit", undefined);
 
-      const freeAppsList = first === undefined ? (
+      const freeAppsList = limit === undefined ? (
         detailedAppsList.slice(offset) 
       ) : (
-        detailedAppsList.slice(offset, offset + first) 
+        detailedAppsList.slice(offset, offset + limit) 
       )
 
       return {

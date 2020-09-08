@@ -6,7 +6,7 @@ const index_1 = tslib_1.__importDefault(require("../resolvers/index"));
 const typeDefs = apollo_server_express_1.gql `
   type Query {
     allFreeApps (
-      first: Int,
+      limit: Int,
       offset: Int
     ): FreeAppsResult!
   }

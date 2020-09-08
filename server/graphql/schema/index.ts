@@ -5,7 +5,7 @@ import resolvers from '../resolvers/index';
 const typeDefs = gql`
   type Query {
     allFreeApps (
-      first: Int,
+      limit: Int,
       offset: Int
     ): FreeAppsResult!
   }

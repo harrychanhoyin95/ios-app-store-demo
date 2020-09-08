@@ -11,7 +11,15 @@ import AppListing from '../AppListing/AppListing'
 import './App.scss'
 
 const App = () => {
-  const { loading, error, data } = useQuery(GET_FREE_APPS_LIST_QUERY)
+  const { loading, error, data, fetchMore } = useQuery(
+    GET_FREE_APPS_LIST_QUERY, 
+    {
+      variables: {
+        offset: 0,
+        limit: 10
+      },
+    }
+  )
   if (loading) return (
     <div className="app_loading-container">
       <MoonLoader />
@@ -30,7 +38,7 @@ const App = () => {
   return (
     <div>
       <SearchBar className="app_search-bar-container" />
-      <AppListing freeApps={freeApps} />
+      <AppListing freeApps={freeApps} fetchMore={fetchMore} />
     </div>
   );
 }
