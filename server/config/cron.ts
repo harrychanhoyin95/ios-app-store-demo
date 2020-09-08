@@ -5,7 +5,7 @@ import axios from 'axios';
 class Cron {
   public tenMinutes = ():void => {
     cron.schedule("*/30 * * * * *", async() => {
-      console.log("running a task every minute");
+      console.log("Fetching Top Free Apps...");
 
       const appsList = await axios.get('https://itunes.apple.com/hk/rss/topfreeapplications/limit=100/json')
       .then(result => result.data.feed.entry)
@@ -33,7 +33,7 @@ class Cron {
 
   public secondTenMinutes = ():void => {
     cron.schedule("*/30 * * * * *", async() => {
-      console.log("running a task every minute");
+      console.log("Fetching Grossing Apps...");
 
       const appsList = await axios.get('https://itunes.apple.com/hk/rss/topgrossingapplications/limit=10/json')
       .then(result => result.data.feed.entry)

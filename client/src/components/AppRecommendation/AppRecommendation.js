@@ -7,8 +7,6 @@ const AppRecommendation = ({
   freeApps,
   grossingApps
 }) => {
-  console.log("freeApps.length", freeApps.length)
-
   return (
     <div className="app-recommendation_container">
       <div className="app-recommendation_heading">推介</div>
