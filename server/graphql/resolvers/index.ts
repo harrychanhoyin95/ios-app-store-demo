@@ -1,4 +1,4 @@
-import { FreeAppsQueries } from './appsInfo'
+import { FreeAppsQueries } from './freeApps'
 
 const rootResolver = {
   Query: {

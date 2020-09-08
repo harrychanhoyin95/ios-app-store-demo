@@ -1,11 +1,14 @@
+import fs from "fs"
+import cron from 'node-cron'
 import axios from 'axios';
-import _ from "lodash";
 
-const FreeAppsQueries = {
-  allFreeApps: async (parent, args, ctx) => {
-    try {
+class Cron {
+  public tenMinutes = (): void => {
+    cron.schedule("*/30 * * * * *", async() => {
+      console.log("running a task every minute");
+
       const appsList = await axios.get('https://itunes.apple.com/hk/rss/topfreeapplications/limit=100/json')
-        .then(result => result.data.feed.entry)
+      .then(result => result.data.feed.entry)
 
       const detailedAppsList = await Promise.all(appsList.map(async(a) => {
         const singleApp = await axios.get(`https://itunes.apple.com/hk/lookup?id=${a.id.attributes["im:id"]}`)
@@ -24,23 +27,9 @@ const FreeAppsQueries = {
         }
       }))
 
-      const offset = _.get(args, "offset", 0);
-      const limit = _.get(args, "limit", undefined);
-
-      const freeAppsList = limit === undefined ? (
-        detailedAppsList.slice(offset) 
-      ) : (
-        detailedAppsList.slice(offset, offset + limit) 
-      )
-
-      return {
-        freeApps: freeAppsList,
-        totalCount: freeAppsList.length
-      }
-    } catch (err) {
-      throw err;
-    }
+      fs.writeFileSync('freeAppsList.json', JSON.stringify({ detailedAppsList }), 'utf8')
+    });
   }
 }
 
-export { FreeAppsQueries };
+export default Cron;
