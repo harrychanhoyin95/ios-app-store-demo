@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { MoonLoader } from "react-spinners";
+import _ from "lodash";
 
 import { GET_FREE_APPS_LIST_QUERY } from './AppQuery'
 
@@ -11,7 +12,6 @@ import './App.scss'
 
 const App = () => {
   const { loading, error, data } = useQuery(GET_FREE_APPS_LIST_QUERY)
-
   if (loading) return (
     <div className="app_loading-container">
       <MoonLoader />
@@ -25,12 +25,12 @@ const App = () => {
     </div>
   )
   
-  const { appsInfo } = data
+  const freeApps = _.get(data, "allFreeApps.freeApps", [])
 
   return (
     <div>
       <SearchBar className="app_search-bar-container" />
-      <AppListing appsInfo={appsInfo} />
+      <AppListing freeApps={freeApps} />
     </div>
   );
 }

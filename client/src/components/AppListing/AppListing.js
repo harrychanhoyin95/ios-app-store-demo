@@ -5,13 +5,13 @@ import LazyLoad from 'react-lazyload';
 import './AppListing.scss';
 
 const AppListing = ({
-  appsInfo
+  freeApps
 }) => {
-  console.log("appsInfo", appsInfo)
+  console.log("freeApps", freeApps)
 
   return (
     <div  className="app-listing_container">
-      {appsInfo.map((apps, index) => {
+      {freeApps.map((apps, index) => {
         return (
           <LazyLoad key={apps.title} height={100}>
             <div className="app-listing_apps-container">
