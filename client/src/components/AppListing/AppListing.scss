@@ -1,0 +1,61 @@
+.app-listing_container{
+  border-top: 1px solid #cacaca;
+
+  .app-listing_apps-container {
+    padding: 0px 16px;
+    height: 116px;
+  
+    .app-listing_apps-container-border-bottom {
+      border-bottom: 1px solid #cacaca;
+      display: flex;
+      align-items: center;
+      padding: 4px 8px;
+      height: 100%;
+
+      .app-listing_index {
+        width: 10%;
+        color: #808080;
+      }
+    
+      .app-listing_image {
+        width: 20%;
+
+        &.odd-image {
+          border-radius: 12px;
+        }
+
+        &.even-image {
+          border-radius: 50%;
+        }
+      }
+    
+      .app-listing_content {
+        width: 70%;
+        padding-left: 8px;
+
+        .app-listing_title {
+          margin-bottom: 8px;
+        }
+
+        .app-listing_category {
+          color: #808080;
+          font-size: 12px;
+          margin-bottom: 8px;
+        }
+
+        .app-listing_rating {
+          color: #808080;
+          font-size: 10px;
+
+          .fa-star {
+            color: rgb(255, 150, 0);
+          }
+
+          .app-listing_rating-count {
+            margin-left: 4px;
+          }
+        }
+      }
+    }
+  }
+}

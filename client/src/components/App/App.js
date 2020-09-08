@@ -4,6 +4,9 @@ import { MoonLoader } from "react-spinners";
 
 import { GET_FREE_APPS_LIST_QUERY } from './AppQuery'
 
+import SearchBar from '../SearchBar/SearchBar'
+import AppListing from '../AppListing/AppListing'
+
 import './App.scss'
 
 const App = () => {
@@ -24,11 +27,10 @@ const App = () => {
   
   const { appsInfo } = data
 
-  console.log("appsInfo", appsInfo)
-
   return (
     <div>
-      Home
+      <SearchBar className="app_search-bar-container" />
+      <AppListing appsInfo={appsInfo} />
     </div>
   );
 }

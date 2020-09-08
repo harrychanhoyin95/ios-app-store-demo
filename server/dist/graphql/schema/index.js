@@ -5,7 +5,15 @@ const apollo_server_express_1 = require("apollo-server-express");
 const index_1 = tslib_1.__importDefault(require("../resolvers/index"));
 const typeDefs = apollo_server_express_1.gql `
   type Query {
-    appsInfo: [Apps]!
+    allFreeApps (
+      first: Int,
+      offset: Int
+    ): FreeAppsResult!
+  }
+
+  type FreeAppsResult {
+    freeApps: [Apps]!
+    totalCount: Int
   }
 
   type Apps {
