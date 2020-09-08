@@ -1,0 +1,26 @@
+.app-recommendation_container {
+  padding: 8px 16px;
+
+  .app-recommendation_heading {
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+
+  .app-recommendation_app-container {
+    font-size: 12px;
+    width: 100%;
+
+    .app-recommendation_image {
+      border-radius: 12px;
+      margin-bottom: 4px;
+    }
+
+    .app-recommendation_title {
+      margin-bottom: 4px;
+    }
+
+    .app-recommendation_category {
+      color: #808080;
+    }
+  }
+}
