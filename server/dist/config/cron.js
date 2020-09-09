@@ -16,6 +16,8 @@ class Cron {
                         .then(result => result.data.results[0]);
                     return {
                         title: singleApp.trackName,
+                        description: a.summary.label.replace(/\u2028/g, ""),
+                        author: singleApp.artistName,
                         images: {
                             artworkUrl60: singleApp.artworkUrl60,
                             artworkUrl100: singleApp.artworkUrl100,
@@ -39,6 +41,8 @@ class Cron {
                         .then(result => result.data.results[0]);
                     return {
                         title: singleApp.trackName,
+                        description: a.summary.label.replace(/\u2028/g, ""),
+                        author: singleApp.artistName,
                         images: {
                             artworkUrl60: singleApp.artworkUrl60,
                             artworkUrl100: singleApp.artworkUrl100,

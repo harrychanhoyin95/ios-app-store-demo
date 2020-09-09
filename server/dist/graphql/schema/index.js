@@ -11,6 +11,9 @@ const typeDefs = apollo_server_express_1.gql `
     ): FreeAppsResult!
 
     allGrossingApps: GrossingAppsResult!
+    allSearchedApps (
+      filter: String
+    ): SearchResult!
   }
 
   type FreeAppsResult {
@@ -22,8 +25,14 @@ const typeDefs = apollo_server_express_1.gql `
     grossingApps: [Apps]!
   }
 
+  type SearchResult {
+    searchedApps: [Apps]!
+  }
+
   type Apps {
     title: String
+    description: String
+    author: String
     images: AppsImage
     category: String
     rating: Float

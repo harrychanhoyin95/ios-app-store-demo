@@ -16,6 +16,7 @@ const SearchBar = ({
         className="search-bar_input"
         value={searchKeyword}
         onChange={(e) => onSearchKeyWordChange(e.target.value)}
+        placeholder="搜尋"
       />
     </div>
   )

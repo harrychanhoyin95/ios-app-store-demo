@@ -10,6 +10,9 @@ const typeDefs = gql`
     ): FreeAppsResult!
 
     allGrossingApps: GrossingAppsResult!
+    allSearchedApps (
+      filter: String
+    ): SearchResult!
   }
 
   type FreeAppsResult {
@@ -21,8 +24,14 @@ const typeDefs = gql`
     grossingApps: [Apps]!
   }
 
+  type SearchResult {
+    searchedApps: [Apps]!
+  }
+
   type Apps {
     title: String
+    description: String
+    author: String
     images: AppsImage
     category: String
     rating: Float

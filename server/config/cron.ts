@@ -1,4 +1,4 @@
-import fs from "fs"
+import fs from 'fs'
 import cron from 'node-cron'
 import axios from 'axios';
 
@@ -8,7 +8,7 @@ class Cron {
       console.log("Fetching Top Free Apps...");
 
       const appsList = await axios.get('https://itunes.apple.com/hk/rss/topfreeapplications/limit=100/json')
-      .then(result => result.data.feed.entry)
+        .then(result => result.data.feed.entry)
 
       const detailedAppsList = await Promise.all(appsList.map(async(a) => {
         const singleApp = await axios.get(`https://itunes.apple.com/hk/lookup?id=${a.id.attributes["im:id"]}`)
@@ -16,6 +16,8 @@ class Cron {
 
         return {
           title: singleApp.trackName,
+          description: a.summary.label.replace(/\u2028/g, ""),
+          author: singleApp.artistName,
           images: {
             artworkUrl60: singleApp.artworkUrl60,
             artworkUrl100: singleApp.artworkUrl100,
@@ -44,6 +46,8 @@ class Cron {
 
         return {
           title: singleApp.trackName,
+          description: a.summary.label.replace(/\u2028/g, ""),
+          author: singleApp.artistName,
           images: {
             artworkUrl60: singleApp.artworkUrl60,
             artworkUrl100: singleApp.artworkUrl100,
