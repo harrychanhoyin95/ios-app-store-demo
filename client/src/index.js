@@ -10,7 +10,8 @@ import configureStore from './redux/configureStore'
 import './index.scss';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  // uri: 'http://localhost:4000/graphql',
+  uri: "https://ios-app-store-demo.herokuapp.com/graphql",
   cache: new InMemoryCache()
 });
 
