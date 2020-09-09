@@ -8,7 +8,7 @@ class Cron {
     constructor() {
         this.tenMinutes = () => {
             node_cron_1.default.schedule("*/30 * * * * *", () => tslib_1.__awaiter(this, void 0, void 0, function* () {
-                console.log("running a task every minute");
+                console.log("Fetching Top Free Apps...");
                 const appsList = yield axios_1.default.get('https://itunes.apple.com/hk/rss/topfreeapplications/limit=100/json')
                     .then(result => result.data.feed.entry);
                 const detailedAppsList = yield Promise.all(appsList.map((a) => tslib_1.__awaiter(this, void 0, void 0, function* () {
@@ -31,7 +31,7 @@ class Cron {
         };
         this.secondTenMinutes = () => {
             node_cron_1.default.schedule("*/30 * * * * *", () => tslib_1.__awaiter(this, void 0, void 0, function* () {
-                console.log("running a task every minute");
+                console.log("Fetching Grossing Apps...");
                 const appsList = yield axios_1.default.get('https://itunes.apple.com/hk/rss/topgrossingapplications/limit=10/json')
                     .then(result => result.data.feed.entry);
                 const detailedAppsList = yield Promise.all(appsList.map((a) => tslib_1.__awaiter(this, void 0, void 0, function* () {
