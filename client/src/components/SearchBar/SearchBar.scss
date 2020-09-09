@@ -1,9 +1,10 @@
 .app_search-bar-container {
   padding: 8px 16px;
-  background-color: #fafafa;
+  background-color: #f5f5f5;;
   position: sticky;
   top: 0;
   z-index: 99;
+  border-bottom: 1px solid #cacaca;
 }
 
 .search-bar_input {
