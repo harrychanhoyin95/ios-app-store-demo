@@ -47,7 +47,7 @@ const App = ({ searchKeyword }) => {
     </div>
   )
 
-  if (error || grossingError) return (
+  if (error || grossingError || searchError) return (
     <div className="app_error-container">
       <i className="fas fa-exclamation-circle fa-4x"></i>
       <div className="app_error-message">Oops! Something went wrong.</div>
