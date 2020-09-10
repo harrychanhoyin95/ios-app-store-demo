@@ -31,10 +31,13 @@
         width: 20%;
       }
 
-      .tablet-only,
-      .browser-only {
+      .tablet-only {
         width: 10%;
         margin-right: 24px;
+      }
+
+      .browser-only{
+        width: 100px;
       }
 
       .app-listing_image {

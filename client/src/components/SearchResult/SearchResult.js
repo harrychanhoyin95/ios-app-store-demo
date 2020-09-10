@@ -1,5 +1,6 @@
 import React from 'react';
 import Rating from 'react-rating'
+import { MobileOnlyView, TabletView, BrowserView } from 'react-device-detect'
 
 import './SearchResult.scss'
 
@@ -15,11 +16,27 @@ const SearchResult = ({ searchedApps }) => {
             rel="noopener noreferrer"
           >
             <div className="searched-result_index">{index + 1}</div>
-            <img
-              src={apps.images.artworkUrl100} 
-              alt={apps.title}
-              className={`searched-result_image ${index % 2 === 0 ? "odd-image" : "even-image" }`}
-            />
+            <MobileOnlyView  viewClassName="mobile-only">
+              <img
+                src={apps.images.artworkUrl100} 
+                alt={apps.title}
+                className={`searched-result_image ${index % 2 === 0 ? "odd-image" : "even-image" }`}
+              />
+            </MobileOnlyView>
+            <TabletView viewClassName="tablet-only">
+              <img
+                src={apps.images.artworkUrl512} 
+                alt={apps.title}
+                className={`searched-result_image ${index % 2 === 0 ? "odd-image" : "even-image" }`}
+              />
+            </TabletView>
+            <BrowserView viewClassName="browser-only">
+              <img
+                src={apps.images.artworkUrl512} 
+                alt={apps.title}
+                className={`searched-result_image ${index % 2 === 0 ? "odd-image" : "even-image" }`}
+              />
+            </BrowserView>
             <div className="searched-result_content">
               <div className="searched-result_title">{apps.title}</div>
               <div className="searched-result_category">{apps.category}</div>

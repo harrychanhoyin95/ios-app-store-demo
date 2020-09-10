@@ -17,8 +17,21 @@
       color: #808080;
     }
   
-    .searched-result_image {
+    .mobile-only {
       width: 20%;
+    }
+
+    .tablet-only {
+      width: 10%;
+      margin-right: 24px;
+    }
+
+    .browser-only{
+      width: 100px;
+    }
+
+    .searched-result_image {
+      width: 100%;
 
       &.odd-image {
         border-radius: 12px;
