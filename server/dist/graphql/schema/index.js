@@ -33,6 +33,7 @@ const typeDefs = apollo_server_express_1.gql `
     title: String
     description: String
     author: String
+    link: String
     images: AppsImage
     category: String
     rating: Float

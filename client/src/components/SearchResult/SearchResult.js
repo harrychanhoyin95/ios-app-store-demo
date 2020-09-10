@@ -8,7 +8,12 @@ const SearchResult = ({ searchedApps }) => {
     <div className="searched-result_apps-container">
       {searchedApps.map((apps, index) => {
         return (
-          <div className="searched-result_apps-container-border-bottom">
+          <a
+            className="searched-result_apps-container-border-bottom"
+            href={apps.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div className="searched-result_index">{index + 1}</div>
             <img
               src={apps.images.artworkUrl100} 
@@ -29,7 +34,7 @@ const SearchResult = ({ searchedApps }) => {
                 <span className="searched-result_rating-count">({apps.ratingCount})</span>
               </div>
             </div>
-          </div>
+          </a>
         )
       })}
     </div>

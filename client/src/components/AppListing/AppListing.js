@@ -4,6 +4,7 @@ import LazyLoad from 'react-lazyload';
 import InfiniteScroll from "react-infinite-scroll-component";
 import Fade from 'react-reveal/Fade';
 import { MoonLoader } from "react-spinners";
+import { MobileOnlyView, TabletView, BrowserView } from 'react-device-detect'
 
 import './AppListing.scss';
 
@@ -37,14 +38,35 @@ const AppListing = ({
           return (
             <LazyLoad key={apps.title} height={100}>
               <Fade left>
-                <div className="app-listing_apps-container">
+                <a
+                  className="app-listing_apps-container"
+                  href={apps.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <div className="app-listing_apps-container-border-bottom">
                     <div className="app-listing_index">{index + 1}</div>
-                    <img
-                      src={apps.images.artworkUrl100} 
-                      alt={apps.title}
-                      className={`app-listing_image ${index % 2 === 0 ? "odd-image" : "even-image" }`}
-                    />
+                    <MobileOnlyView  viewClassName="mobile-only">
+                      <img
+                        src={apps.images.artworkUrl100} 
+                        alt={apps.title}
+                        className={`app-listing_image ${index % 2 === 0 ? "odd-image" : "even-image" }`}
+                      />
+                    </MobileOnlyView>
+                    <TabletView viewClassName="tablet-only">
+                      <img
+                        src={apps.images.artworkUrl512} 
+                        alt={apps.title}
+                        className={`app-listing_image ${index % 2 === 0 ? "odd-image" : "even-image" }`}
+                      />
+                    </TabletView>
+                    <BrowserView viewClassName="browser-only">
+                      <img
+                        src={apps.images.artworkUrl512} 
+                        alt={apps.title}
+                        className={`app-listing_image ${index % 2 === 0 ? "odd-image" : "even-image" }`}
+                      />
+                    </BrowserView>
                     <div className="app-listing_content">
                       <div className="app-listing_title">{apps.title}</div>
                       <div className="app-listing_category">{apps.category}</div>
@@ -60,7 +82,7 @@ const AppListing = ({
                       </div>
                     </div>
                   </div>
-                </div>
+                </a>
               </Fade>
             </LazyLoad>
           )

@@ -10,6 +10,7 @@ const GET_GROSSING_APPS_LIST_QUERY = gql`
           artworkUrl512
           artworkUrl100
         }
+        link
         category
         rating
         ratingCount

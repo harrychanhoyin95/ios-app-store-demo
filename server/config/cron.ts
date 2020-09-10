@@ -18,6 +18,7 @@ class Cron {
           title: singleApp.trackName,
           description: a.summary.label.replace(/\u2028/g, ""),
           author: singleApp.artistName,
+          link: a.link[0].attributes.href,
           images: {
             artworkUrl60: singleApp.artworkUrl60,
             artworkUrl100: singleApp.artworkUrl100,
@@ -48,6 +49,7 @@ class Cron {
           title: singleApp.trackName,
           description: a.summary.label.replace(/\u2028/g, ""),
           author: singleApp.artistName,
+          link: a.link[0].attributes.href,
           images: {
             artworkUrl60: singleApp.artworkUrl60,
             artworkUrl100: singleApp.artworkUrl100,

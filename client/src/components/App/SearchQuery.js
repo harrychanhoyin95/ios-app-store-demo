@@ -11,6 +11,7 @@ const SEARCH_QUERY = gql`
           artworkUrl512
           artworkUrl100
         }
+        link
         category
         rating
         ratingCount

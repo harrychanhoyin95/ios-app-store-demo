@@ -32,6 +32,7 @@ const typeDefs = gql`
     title: String
     description: String
     author: String
+    link: String
     images: AppsImage
     category: String
     rating: Float
